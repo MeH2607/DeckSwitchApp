@@ -1,7 +1,7 @@
 let oldDeck;
 let newDeck;
 document.getElementById("submitbtn").addEventListener("click", function () {
-    console.log("pressed")
+   
 
   oldDeck = document
     .getElementById("oldDeck")
@@ -14,18 +14,13 @@ document.getElementById("submitbtn").addEventListener("click", function () {
     .map((line) => line.trim())
     .filter((line) => line !== "");
 
-    console.log("Decks recieved")
-
   cleanUpLists(oldDeck);
   cleanUpLists(newDeck);
-
-   console.log("Decks cleaned up")
 
   // Parse into maps
   oldDeck = new Map(Object.entries(parseDeckToMap(oldDeck)));
 newDeck = new Map(Object.entries(parseDeckToMap(newDeck)));
 
- console.log("Decks parsed")
 
   // Compare the decks and display results
   // compareLists(oldDeck, newDeck);
@@ -36,11 +31,8 @@ newDeck = new Map(Object.entries(parseDeckToMap(newDeck)));
   const toGetRemovedFromDeck = getToGetRemoved(oldDeck, newDeck);
   const toGetAddedToDeck = getToGetAdded(oldDeck, newDeck);
 
-  console.log("toGetAdded and ToGetRemoved created")
-
   printDifferences(toGetRemovedFromDeck, toGetAddedToDeck);
 
-  console.log("printDifferences called")
 });
 
 // removes the titles in the decklist
